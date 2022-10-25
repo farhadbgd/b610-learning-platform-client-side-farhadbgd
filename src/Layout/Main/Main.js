@@ -1,24 +1,30 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
+import Footer from '../../Pages/Shared/Footer/Footer';
+import Header from '../../Pages/Shared/Header/Header';
+import LeftSideNav from '../../Pages/Shared/LeftSideNav/LeftSideNav';
+import RightSideNav from '../../Pages/Shared/RightSideNav/RightSideNav';
 
 const Main = () => {
     return (
         <div>
+            <Header></Header>
             <Container>
                 <Row>
-                    <Col>
-                        <h1>Leftside Nav</h1>
+                    <Col lg="3">
+                        <LeftSideNav></LeftSideNav>
                     </Col>
-                    <Col>
+                    <Col lg="6">
                         <Outlet></Outlet>
                     </Col>
-                    <Col>
-                        <h1>Rightside Nav</h1>
+                    <Col lg="3">
+                        <RightSideNav></RightSideNav>
                     </Col>
                 </Row>
             </Container>
-        </div>
+            <Footer></Footer>
+        </div >
     );
 };
 
