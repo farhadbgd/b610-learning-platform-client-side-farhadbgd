@@ -25,9 +25,9 @@ const Header = () => {
 
     return (
 
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="secondary" variant="dark">
             <Container>
-                <Navbar.Brand href='/'>
+                <Navbar.Brand className='text-danger fw-bold fs-2' href='/'>
                     <img
                         alt=""
                         src="/logo.svg"
@@ -43,21 +43,21 @@ const Header = () => {
                     <Nav className="me-auto">
                     </Nav>
                     <Nav className="me-auto">
-                        <NavLink to={'/courses'} className="d-flex align-items-center px-2" style={{ textDecoration: 'none' }}>Courses</NavLink>
-                        <NavLink className="d-flex align-items-center px-2" style={{ textDecoration: 'none' }}>Blog</NavLink>
-                        <NavLink className="d-flex align-items-center px-2" style={{ textDecoration: 'none' }}>FAQ</NavLink>
-                        <NavLink className="d-flex align-items-center px-2" style={{ textDecoration: 'none' }}>Toggle Theme</NavLink>
-                        <NavLink className="d-flex align-items-center px-2" style={{ textDecoration: 'none' }}>
+                        <NavLink to={'/courses'} className="d-flex align-items-center p-2 fs-4 fw-bold text-dark " style={{ textDecoration: 'none' }}>COURSES</NavLink>
+                        <NavLink to={'/blog'} className="d-flex align-items-center p-2 fs-4 fw-bold text-dark" style={{ textDecoration: 'none' }}>BLOG</NavLink>
+                        <NavLink to={'/faq'} className="d-flex align-items-center p-2 fs-4 fw-bold text-dark" style={{ textDecoration: 'none' }}>FAQ</NavLink>
+                        <NavLink className="d-flex align-items-center px-2 fs-4 fw-bold text-dark" style={{ textDecoration: 'none' }}>Theme</NavLink>
+                        <NavLink className="d-flex align-items-center px-2 text-light" style={{ textDecoration: 'none' }}>
 
                             {
                                 user?.uid ?
                                     <>
-                                        <span>{user?.displayName}</span>
-                                        <Link variant="light" onClick={handleLogOut} className="d-flex align-items-center px-2" style={{ textDecoration: 'none' }}>Log out</Link>
+                                        <span>{user?.displayName ? user.displayName : user.email}</span>
+                                        <Link variant="light" onClick={handleLogOut} className="d-flex align-items-center px-2 text-light" style={{ textDecoration: 'none' }}>Log out</Link>
                                     </>
                                     :
                                     <>
-                                        <Link to='/login' className="d-flex align-items-center px-2" style={{ textDecoration: 'none' }}>Login</Link>
+                                        <Link to='/login' className="d-flex align-items-center px-2 " style={{ textDecoration: 'none' }}>Login</Link>
                                         <Link to='/register' className="d-flex align-items-center px-2" style={{ textDecoration: 'none' }}>Register</Link>
                                     </>
                             }
