@@ -24,7 +24,7 @@ const Courses = () => {
                     <div className="d-grid gap-2">
 
                         <Button variant="dark" size="lg">
-                            <Link style={{ textDecoration: 'none' }} to={`/checkout/${courses[0].course_id}`}> Block level button</Link>
+                            <Link style={{ textDecoration: 'none' }} to={`/checkout/${courses[0].course_id}`}> Get Premium Access</Link>
                         </Button>
                     </div>
                 </Card.Footer>
