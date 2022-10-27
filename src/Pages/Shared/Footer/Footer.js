@@ -1,14 +1,22 @@
 import React from 'react';
 
 import { FaCopyright } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 
 
 const Footer = () => {
 
     return (
-        <div>
-            <h1>This is Footer Page <FaCopyright /></h1>
+        <div className='my-4 text-center bg-info'>
+
+            <Link className='mx-2 text-dark'>Terms of Use</Link>
+            <Link className='mx-2 text-dark'>Privacy Policy</Link>
+            <Link className='mx-2 text-dark'>Refund Policy</Link>
+            <Link className='mx-2 text-dark'>Terms of Use</Link>
+            <Link className='mx-2 text-dark'>Reschedule Policy</Link> <br></br>
+
+            © 2009-2022 – Developer Program. All Rights Reserved.
 
         </div>
 

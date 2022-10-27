@@ -11,6 +11,7 @@ import Courses from "../Pages/Courses/Courses";
 import Home from "../Pages/Home/Home";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
+
 export const routes = createBrowserRouter([
     {
         path: "/",
@@ -53,6 +54,10 @@ export const routes = createBrowserRouter([
             {
                 path: "/faq",
                 element: <Faq></Faq>
+            },
+            {
+                path: "*",
+                element: <E></E>
             },
 
 
