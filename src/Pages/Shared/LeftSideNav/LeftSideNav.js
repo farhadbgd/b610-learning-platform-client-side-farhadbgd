@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import CourseInCard from '../CourseInCard/CourseInCard';
+
 
 const LeftSideNav = () => {
     const [courses, setCourses] = useState([]);
