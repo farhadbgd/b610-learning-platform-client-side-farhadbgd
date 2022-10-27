@@ -23,15 +23,13 @@ const CourseInCard = () => {
                 courses.map(course => <div
                     key={course.id}
                     className="m-2"
-                    style={{ width: '18rem' }}
                 >
 
-                    <Card >
+                    <Card style={{ width: '18rem', height: '14rem' }}>
                         <Card.Body>
                             <Card.Title><Link style={{ textDecoration: 'none' }} to={`/courses/${course.id}`}>{course.id}</Link></Card.Title>
                             <Card.Text>
-                                This is a wider card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.
+                                {course.couresName}
                             </Card.Text>
 
                         </Card.Body>

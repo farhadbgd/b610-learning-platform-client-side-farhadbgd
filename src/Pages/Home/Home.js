@@ -3,7 +3,7 @@ import React from 'react';
 const Home = () => {
     return (
 
-        <div>
+        <div className="d-block w-100 min-vh-100 body">
             <div>
                 The Creative Front End Development Bundle
                 Learn Front End Web Development With HTML CSS and Javascript!
@@ -19,6 +19,7 @@ const Home = () => {
                 More!
             </div>
         </div>
+
     );
 };
 
