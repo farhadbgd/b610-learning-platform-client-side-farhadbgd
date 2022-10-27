@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Error from "../Error/Error";
 import Faq from "../FAQ/Faq";
 import CourseHeading from "../Layout/CourseHeading/CourseHeading";
 import Main from "../Layout/Main/Main";
@@ -57,7 +58,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: "*",
-                element: <E></E>
+                element: <Error></Error>
             },
 
 
