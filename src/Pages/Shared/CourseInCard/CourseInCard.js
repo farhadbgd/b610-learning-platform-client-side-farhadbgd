@@ -8,7 +8,7 @@ const CourseInCard = () => {
     const [courses, setCourses] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/courses')
+        fetch('https://b610-lerning-platform-server-side-farhadbgd.vercel.app/courses')
             .then(response => response.json())
 
             .then(data => setCourses(data));
