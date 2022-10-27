@@ -1,50 +1,114 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
+import { Form } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider/AuthProvider';
 
 const Login = () => {
-    const { providerLogin } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const { signIn, setLoading, providerLogin } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
     const googleProvider = new GoogleAuthProvider();
     const gitProvider = new GithubAuthProvider()
+    const from = location.state?.from?.pathname || '/';
 
     const googleSignIn = () => {
         providerLogin(googleProvider)
-            .then(reseult => {
-                const user = reseult.user;
-                console.log(user.displayName);
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                navigate(from, { replace: true });
+
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                setError(error.message);
+            })
+            .finally(() => {
+                setLoading(false);
+            })
     }
+
     const gitSignIn = () => {
         providerLogin(gitProvider)
-            .then(reseult => {
-                const user = reseult.user;
-                console.log(user.displayName);
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                navigate(from, { replace: true });
+
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                setError(error.message);
+            })
+            .finally(() => {
+                setLoading(false);
+            })
     }
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                setError('');
+                navigate(from, { replace: true });
+
+            })
+            .catch(error => {
+                console.error(error)
+                setError(error.message);
+            })
+            .finally(() => {
+                setLoading(false);
+            })
+
+
+    }
+
     return (
-        <div>
-            <>
-                <div className="d-grid gap-2 my-4">
-                    <Button onClick={googleSignIn} variant="primary">Log in with Gmail</Button>{' '}
-                </div>
-                <div className="d-grid gap-2 my-4">
-                    <Link to={'/login/mail'} className="d-grid gap-2 my-4"><Button variant="secondary">Log in with Email</Button>{' '}</Link>
-                </div>
-                <div className="d-grid gap-2 my-4">
-                    <Button onClick={gitSignIn} variant="success">Log in with Git</Button>{' '}
-                </div>
-                <div className="d-grid gap-2 my-4">
-                    <Button variant="success">If you have no account, please <Link to={'/register'} className="text-dark"> Register</Link></Button>{' '}
-                </div>
+        <>
+            <div>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control name="email" type="email" placeholder="Enter email" required />
 
-            </>
+                    </Form.Group>
 
-        </div>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control name="password" type="password" placeholder="Password" required />
+                    </Form.Group>
+                    <div className="d-grid gap-2 my-4">
+                        <Button variant="primary" type="submit">
+                            Login
+                        </Button>
+                    </div>
+                    <Form.Text className="text-danger">
+                        {error}
+                    </Form.Text>
+                </Form>
+            </div>
+            <div className="d-grid gap-2 my-4">
+                <Button onClick={googleSignIn} variant="primary">Log in with Gmail</Button>{' '}
+            </div>
+            <div className="d-grid gap-2 my-4">
+                <Button onClick={gitSignIn} variant="success">Log in with Git</Button>{' '}
+            </div>
+        </>
     );
 };
 

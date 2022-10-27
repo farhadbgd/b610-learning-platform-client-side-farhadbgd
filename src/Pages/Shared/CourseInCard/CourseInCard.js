@@ -28,9 +28,11 @@ const CourseInCard = () => {
                     <Card style={{ width: '18rem', height: '14rem' }}>
                         <Card.Body>
                             <Card.Title><Link style={{ textDecoration: 'none' }} to={`/courses/${course.id}`}>{course._id}</Link></Card.Title>
-                            <Card.Text>
-                                {course.couresName}
-                            </Card.Text>
+                            <Link to={`/courses/${course.id}`} style={{ textDecoration: 'none' }}>
+                                <Card.Text>
+                                    {course.couresName}
+                                </Card.Text>
+                            </Link>
 
                         </Card.Body>
                         <Card.Footer>

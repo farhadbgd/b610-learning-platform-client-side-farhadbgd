@@ -4,7 +4,6 @@ import Faq from "../FAQ/Faq";
 import CourseHeading from "../Layout/CourseHeading/CourseHeading";
 import Main from "../Layout/Main/Main";
 import Login from "../login/Login";
-import Loginmail from "../login/Loginmail";
 import Register from "../login/Register";
 import Blog from "../Pages/Blog/Blog";
 import Checkout from "../Pages/Checkout/Checkout";
@@ -44,10 +43,7 @@ export const routes = createBrowserRouter([
                 path: "/register",
                 element: <Register></Register>
             },
-            {
-                path: "/login/mail",
-                element: <Loginmail></Loginmail>
-            },
+
             {
                 path: "/blog",
                 element: <Blog></Blog>
