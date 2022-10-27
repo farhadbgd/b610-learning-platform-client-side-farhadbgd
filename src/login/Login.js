@@ -107,6 +107,9 @@ const Login = () => {
             <div className="d-grid gap-2 my-4">
                 <Button onClick={gitSignIn} variant="success">Log in with Git</Button>{' '}
             </div>
+            <div className="d-grid gap-2 my-4">
+                <Button variant="success">If you have no account, please <Link to={'/register'} className="text-dark">Register</Link></Button>{' '}
+            </div>
         </>
     );
 };

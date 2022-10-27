@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, Col, Container, Image, NavLink, Row } from 'react-bootstrap';
+import { Button, Col, Container, NavLink, Row } from 'react-bootstrap';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
