@@ -18,18 +18,21 @@ const CourseInCard = () => {
     return (
 
 
-        <div className="d-flex flex-wrap justify-content: center my-5">
+        <div className="d-flex flex-wrap justify-content-evenly  m-4">
             {
                 courses.map(course => <div
                     key={course.id}
                     className="m-2"
                 >
 
-                    <Card style={{ width: '18rem', height: '14rem' }}>
-                        <Card.Body>
-                            <Card.Title><Link style={{ textDecoration: 'none' }} to={`/courses/${course.id}`}>{course._id}</Link></Card.Title>
+                    <Card style={{ width: '18rem', height: '10rem' }} >
+                        <Card.Img variant="top" src={courses[0].img} />
+                        <Card.Body className='style'>
+
+                            <Card.Title><Link style={{ textDecoration: 'none' }} to={`/courses/${course.id}`}>ID NO: {course._id}</Link></Card.Title>
                             <Link to={`/courses/${course.id}`} style={{ textDecoration: 'none' }}>
-                                <Card.Text>
+
+                                <Card.Text >
                                     {course.couresName}
                                 </Card.Text>
                             </Link>
@@ -42,8 +45,6 @@ const CourseInCard = () => {
                 </div>)
             }
         </div>
-
-
 
     );
 };

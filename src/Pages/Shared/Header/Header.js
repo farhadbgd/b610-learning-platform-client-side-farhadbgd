@@ -52,9 +52,13 @@ const Header = () => {
                         <Nav className="me-auto">
                         </Nav>
                         <Nav className="me-auto">
-                            <NavLink to={'/courses'} className="d-flex align-items-center p-2 fs-4 fw-bold text-info " style={{ textDecoration: 'none' }}>COURSES</NavLink>
-                            <NavLink to={'/blog'} className="d-flex align-items-center p-2 fs-4 fw-bold text-info" style={{ textDecoration: 'none' }}>BLOG</NavLink>
-                            <NavLink to={'/faq'} className="d-flex align-items-center p-2 fs-4 fw-bold text-info" style={{ textDecoration: 'none' }}>FAQ</NavLink>
+                            <NavLink to={'/'} className="d-flex align-items-center p-2 fs-4 fw-bold text-info 
+                            {({ isActive }) => (isActive ? 'active' : 'inactive')}
+                            
+                            " style={{ textDecoration: 'none' }}>Home</NavLink>
+                            <NavLink to={'/courses'} className="d-flex align-items-center p-2 fs-4 fw-bold text-info " style={{ textDecoration: 'none' }}>Courses</NavLink>
+                            <NavLink to={'/blog'} className="d-flex align-items-center p-2 fs-4 fw-bold text-info" style={{ textDecoration: 'none' }}>Blog</NavLink>
+                            <NavLink to={'/faq'} className="d-flex align-items-center p-2 fs-4 fw-bold text-info" style={{ textDecoration: 'none' }}>Faq</NavLink>
 
 
                             <NavLink onClick={toggleTheme}
@@ -67,7 +71,7 @@ const Header = () => {
                                     user?.uid ?
                                         <>
                                             <span>{user?.displayName ? user.displayName : user.email}</span>
-                                            <Link variant="light" onClick={handleLogOut} className="d-flex align-items-center px-2 text-light" style={{ textDecoration: 'none' }}>Log out</Link>
+                                            <Link variant="light" onClick={handleLogOut} className="d-flex align-items-center px-2 text-light" style={{ textDecoration: 'none' }}>Logout</Link>
                                         </>
                                         :
                                         <>
